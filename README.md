@@ -18,4 +18,12 @@ This project is designed to teach all core concepts of a full-stack system built
 ---
 
 ## 📂 Project Structure
-
+- CompleteJavaSystem/
+- ├─ backend/ # Java code for the main HTTP server and routing
+- ├─ services/ # Independent microservices (UserService, AuthService, ServerService)
+- ├─ frontend/ # HTML, CSS, JS for a minimal user interface
+- ├─ database/ # JDBC connection, scripts, and migrations
+- ├─ cache/ # Simple (in-memory) caching implementations
+- ├─ logs/ # Logging and monitoring utilities
+- ├─ README.md # Project documentation
+- └─ .gitignore # Files to ignore in Git
