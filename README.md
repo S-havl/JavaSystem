@@ -1,28 +1,21 @@
-Full Java Distributed System - Educational Project
+# Full Java Distributed System
 
-#Complete Java System
+**Educational project to learn distributed systems and web development using only Java.**  
+This project is designed to teach all core concepts of a full-stack system built manually in Java, without using frameworks.
 
-Educational project to learn **distributed systems and web development using only Java**.
+---
 
-## Objectives
+## 🚀 Objectives
 
-- Create a manual for the HTTP server in Java
-- Implement endpoints and business logic without frameworks
-- Connect to a database using JDBC
-- Build a minimal frontend (HTML/JS) served by Java
-- Simulate microservices and internal communication
+- Build a **manual HTTP server** in Java from scratch  
+- Implement **endpoints and business logic** without frameworks  
+- Connect to a **database** using JDBC  
+- Serve a **minimal frontend** (HTML/CSS/JS) from Java  
+- Simulate **microservices and internal communication**  
+- Learn **basic security concepts**: login, roles, JWT  
+- Implement **manual caching and logging** for performance and monitoring  
 
-- Learn basic security (login, roles, JWT)
-- Implement a manual for caching and logging
+---
 
-## Project Structure
+## 📂 Project Structure
 
-/Complete Java System
-/backend -> Java code for the main server
-/services -> separate microservices
-/frontend -> HTML/CSS/JS
-/database -> scripts and JDBC connection
-/cache -> simple caching implementations
-/logs -> logging and monitoring
-README.md
-.gitignore
