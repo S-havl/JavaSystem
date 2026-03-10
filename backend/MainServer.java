@@ -8,13 +8,19 @@ public class MainServer {
         int lport = 8080;
 
         ServerSocket server = new ServerSocket(lport);
-        System.out.println("Waiting for conections on port: " + lport);
+        System.out.println("Waiting for connections on port: " + lport);
         while (true) {
             Socket client = server.accept();
-            System.out.println("Client conection accept.");
+            System.out.println("Client connection accepted.");
 
             InputStream in = client.getInputStream();
             OutputStream out = client.getOutputStream();
+
+            byte [] buffer = new byte[1024];
+            int n;
+            while ((n = in.read(buffer)) != -1) {
+                System.out.print(new String(buffer, 0, n));
+            }
 
         }
     }
