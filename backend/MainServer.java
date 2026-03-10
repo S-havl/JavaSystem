@@ -22,6 +22,9 @@ public class MainServer {
                 System.out.print(new String(buffer, 0, n));
             }
 
+            client.close();
+
         }
+
     }
 }
