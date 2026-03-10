@@ -13,6 +13,8 @@ public class MainServer {
             Socket client = server.accept();
             System.out.println("Client conection accept.");
 
+            InputStream in = client.getInputStream();
+            InputStream out = client.getOutputStream();
 
         }
     }
