@@ -14,7 +14,7 @@ public class MainServer {
             System.out.println("Client conection accept.");
 
             InputStream in = client.getInputStream();
-            InputStream out = client.getOutputStream();
+            OutputStream out = client.getOutputStream();
 
         }
     }
