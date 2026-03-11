@@ -22,6 +22,28 @@ public class MainServer {
                 System.out.print(new String(buffer, 0, n));
             }
 
+            String body = """
+            <html>
+            <head>
+            <title>My server </title>
+            </head>
+
+            <body>
+
+            <h1>My web server</h1>
+
+            <p>This server is developed in Java.</p>
+
+            <ul>
+            <li>Supports sockets</li>
+            <li>Respond HTTP</li>
+            <li>Serves HTML</li>
+            </ul>
+
+            </body>
+            </html>
+            """;
+
             client.close();
 
         }
