@@ -2,6 +2,7 @@ import java.net.Socket;
 import java.net.ServerSocket;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.nio.charset.StandardCharsets;
 
 public class MainServer {
     public static void main(String[] args) throws Exception{
@@ -17,10 +18,9 @@ public class MainServer {
             OutputStream out = client.getOutputStream();
 
             byte [] buffer = new byte[1024];
-            int n;
-            while ((n = in.read(buffer)) != -1) {
-                System.out.print(new String(buffer, 0, n));
-            }
+
+            int n = in.read(buffer);
+            System.out.print(new String (buffer, 0, n));
 
             String body = """
             <html>
@@ -47,11 +47,12 @@ public class MainServer {
             String response =
                 "HTTP/1.1 200 OK\r\n" +
                 "Content-Type: text/html\r\n" +
-                "Content-Length: " + body.length() + "\r\n" +
+                "Content-Length: " + body.getBytes(StandardCharsets.UTF_8).length + "\r\n" +
+                "Connection: close\r\n" +
                 "\r\n" +
                 body;
 
-            out.write(response.getBytes());
+            out.write(response.getBytes(StandardCharsets.UTF_8));
             out.flush();
 
             client.close();
