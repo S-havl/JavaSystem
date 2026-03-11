@@ -44,6 +44,16 @@ public class MainServer {
             </html>
             """;
 
+            String response =
+                "HTTP/1.1 200 OK\r\n" +
+                "Content-Type: text/html\r\n" +
+                "Content-Length: " + body.length() + "\r\n" +
+                "\r\n" +
+                body;
+
+            out.write(response.getBytes());
+            out.flush();
+
             client.close();
 
         }
