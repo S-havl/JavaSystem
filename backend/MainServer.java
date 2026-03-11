@@ -4,6 +4,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.IOException;
 import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 
 public class MainServer {
@@ -23,6 +24,8 @@ public class MainServer {
 
             int n = in.read(buffer);
             System.out.print(new String (buffer, 0, n));
+
+            BufferedReader reader = new BufferedReader(new InputStreamReader(client.getInputStream()));
 
             String body = """
             <html>
