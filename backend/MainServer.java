@@ -1,6 +1,5 @@
 import java.net.Socket;
 import java.net.ServerSocket;
-import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.IOException;
 import java.io.BufferedReader;
@@ -17,15 +16,15 @@ public class MainServer {
             Socket client = server.accept();
             System.out.println("Client connection accepted.");
 
-            InputStream in = client.getInputStream();
+            BufferedReader reader = new BufferedReader(new InputStreamReader(client.getInputStream()));
+
             OutputStream out = client.getOutputStream();
 
-            byte [] buffer = new byte[1024];
+            String line;
 
-            int n = in.read(buffer);
-            System.out.print(new String (buffer, 0, n));
-
-            BufferedReader reader = new BufferedReader(new InputStreamReader(client.getInputStream()));
+            while ((line = reader.readLine()) != null && !line.isEmpty()) {
+                System.out.println(line);
+            }
 
             String body = """
             <html>
