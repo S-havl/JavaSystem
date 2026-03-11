@@ -20,6 +20,15 @@ public class MainServer {
 
             OutputStream out = client.getOutputStream();
 
+            String firstLine = reader.readLine();
+            System.out.println(firstLine);
+
+            String[] parts = firstLine.split(" ");
+
+            String method = parts[0];
+            String path = parts[1];
+            String version = parts[2];
+
             String line;
 
             while ((line = reader.readLine()) != null && !line.isEmpty()) {
@@ -55,9 +64,11 @@ public class MainServer {
                 "Connection: close\r\n" +
                 "\r\n" +
                 body;
-
-            out.write(response.getBytes(StandardCharsets.UTF_8));
-            out.flush();
+            
+            if (path.equals("/")) {
+                out.write(response.getBytes(StandardCharsets.UTF_8));
+                out.flush();
+            }
 
             client.close();
 
