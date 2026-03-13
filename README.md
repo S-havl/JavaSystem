@@ -82,6 +82,8 @@ Contains the web interface served to the client.
 ```
 frontend/
    index.html
+   style.css
+   script.js
 ```
 
 ---
