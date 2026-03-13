@@ -37,6 +37,16 @@ public class MainServer {
                 System.out.println(line);
             }
 
+            String contentType = "text/html";
+
+            if (path.endsWith(".css")) {
+                contentType = "text/css";
+            }
+
+            else if (path.endsWith(".js")) {
+                contentType = "application/javascript";
+            }
+
             if (path.equals("/")) {
                 path = "/index.html";
             }
@@ -47,7 +57,7 @@ public class MainServer {
 
             String response =
                 "HTTP/1.1 200 OK\r\n" +
-                "Content-Type: text/html\r\n" +
+                "Content-Type: " + contentType + "\r\n" +
                 "Content-Length: " + body.getBytes(StandardCharsets.UTF_8).length + "\r\n" +
                 "Connection: close\r\n" +
                 "\r\n" +
