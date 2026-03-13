@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 public class MainServer {
     public static void main(String[] args) throws Exception{
@@ -35,27 +37,13 @@ public class MainServer {
                 System.out.println(line);
             }
 
-            String body = """
-            <html>
-            <head>
-            <title>My server </title>
-            </head>
+            if (path.equals("/")) {
+                path = "/index.html";
+            }
 
-            <body>
+            String filePath = "../frontend" + path;
 
-            <h1>My web server</h1>
-
-            <p>This server is developed in Java.</p>
-
-            <ul>
-            <li>Supports sockets</li>
-            <li>Respond HTTP</li>
-            <li>Serves HTML</li>
-            </ul>
-
-            </body>
-            </html>
-            """;
+            String body = Files.readString(Path.of(filePath));
 
             String response =
                 "HTTP/1.1 200 OK\r\n" +
@@ -64,11 +52,11 @@ public class MainServer {
                 "Connection: close\r\n" +
                 "\r\n" +
                 body;
-            
-            if (path.equals("/")) {
-                out.write(response.getBytes(StandardCharsets.UTF_8));
-                out.flush();
-            }
+
+            System.out.println("Serving file: " + filePath);
+
+            out.write(response.getBytes(StandardCharsets.UTF_8));
+            out.flush();
 
             client.close();
 
