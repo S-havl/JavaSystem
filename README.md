@@ -1,6 +1,6 @@
-# JavaSystem
+# DISTRIBUTED-JAVA-SYSTEM
 
-JavaSystem is an experimental web system implemented in Java to explore how web infrastructure works at a low level.
+DISTRIBUTED-JAVA-SYSTEM is an experimental web system implemented in Java to explore how web infrastructure works at a low level.
 
 The goal of the project is to understand the internal mechanics of web servers and distributed system architecture by building the components manually instead of relying on existing frameworks.
 
